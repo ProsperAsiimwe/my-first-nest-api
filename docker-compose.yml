@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  dev-db:
+    image: postgres:12
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - prosper
+
+      # test-db
+  test-db:
+    image: postgres:12
+    ports:
+      - 5435:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - prosper
+networks:
+  prosper:
+# After, in the Terminal, run -----> docker compose up dev-db -d
